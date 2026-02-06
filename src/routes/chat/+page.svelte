@@ -12,23 +12,23 @@
   async function write(message) {
     if (!message) return;
 
-    // Lägg till användarens meddelande
+   
     chat.push({ user: "User", message, time: new Date().toLocaleTimeString() });
     chat = chat;
 
-    // visa typing bubble
+    
     const element = document.getElementById("visible");
     element.style.display = "flex";
 
-    // delay 1–2 sek
+    
     await new Promise((r) => setTimeout(r, 1000 + Math.random() * 1000));
 
-    // Lägg till Elizas svar
+    
     const reply = eliza.transform(message);
     chat.push({ user: "Eliza", message: reply, time: new Date().toLocaleTimeString() });
     chat = chat;
 
-    // dölj typing bubble
+
     element.style.display = "none";
   }
 </script>
@@ -43,7 +43,7 @@
       </article>
     {/each}
 
-    <!-- Typing bubble -->
+    
     <article id="visible">
       <span class="circle"></span>
       <span class="circle"></span>
@@ -87,7 +87,7 @@
     width: 90%;
   }
 
-  /* USER & ELIZA STYLING */
+ 
   .User {
     background: #2563eb;
     align-self: flex-end;
@@ -100,7 +100,7 @@
     color: white;
   }
 
-  /* namn före */
+  
   article::before {
     content: attr(class);
     font-size: 0.7em;
@@ -108,7 +108,7 @@
     color: lightgray;
   }
 
-  /* tid efter */
+  
   article::after {
     content: attr(data-time);
     font-size: 0.6em;
@@ -117,7 +117,7 @@
     color: gray;
   }
 
-  /* typing bubble */
+  
   #visible {
     width: 100px;
     height: 60px;
@@ -146,7 +146,7 @@
     100% { transform: scale(1); }
   }
 
-  /* pseudo-classes */
+  
   article:hover {
     filter: brightness(1.2);
     transition: 0.2s;
